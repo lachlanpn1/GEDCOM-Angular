@@ -1,0 +1,13 @@
+.gedInput {
+    text-align: center;
+    margin: 0 auto;
+    width: auto;
+    background-color: inherit;
+    border: none;
+}
+
+.file-warning {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}

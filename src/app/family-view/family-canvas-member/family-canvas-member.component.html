@@ -1,0 +1,12 @@
+<svg:rect [attr.x]="location.X" [attr.y]="location.Y" [attr.width]="width" [attr.height]="height" [attr.rx]="rx" [attr.fill]="fill" />
+
+<svg:text [attr.x]="location.X + (width / 2)" [attr.y]="location.Y + yNameOffset" font-family="Trebuchet MS" [attr.font-size]="nameFontSize" [attr.fill]="nameFill" text-anchor="middle" dominant-baseline="middle">
+    {{ member.getNameAsString()}}
+</svg:text>
+<svg:text *ngIf="member.Generation" [attr.x]="location.X + width / 2" [attr.y]="(location.Y + height) - nameFontSize" font-family="Trebuchet MS" [attr.font-size]="dateFontSize" [attr.fill]="dateFill" text-anchor="middle" dominant-baseline="middle">
+    {{ member.getLifeDatesAsString() }}
+</svg:text>
+
+<svg:line *ngIf="canvasMember.HasParents" [attr.x1]="location.X + (width / 2)" [attr.y1]="location.Y + height" [attr.x2]="location.X + (width / 2)" [attr.y2]="location.Y + verticalLineLength" style="stroke:rgb(255,0,0);stroke-width:2"></svg:line>
+<svg:line *ngIf="drawFatherLine" [attr.x1]="location.X" [attr.y1]="location.Y + (height / 2)" [attr.x2]="location.X - horizontalLineLength" [attr.y2]="location.Y + (height / 2)" style="stroke:rgb(255,0,0);stroke-width:2"></svg:line>
+<svg:line *ngIf="drawMotherLine" [attr.x1]="location.X + width" [attr.y1]="location.Y + (height / 2)" [attr.x2]="location.X + width + horizontalLineLength" [attr.y2]="location.Y + (height / 2)" style="stroke:rgb(255,0,0);stroke-width:2"></svg:line>

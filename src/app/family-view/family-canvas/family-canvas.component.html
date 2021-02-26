@@ -1,0 +1,13 @@
+<div id="container">
+    <svg id="family-canvas-svg" [style.width]="screenWidth" [style.height]="screenHeight">
+      <g *ngFor="let member of canvasMembers" family-canvas-member
+        [canvasMember]="member"
+      ></g>
+    </svg>
+    <div class="slidecontainer">
+        <p class="slideinfo">Distance between parents</p>
+        <input type="range" min="1" max="10000" class="slider" id="lineLengthRange" [ngModel]="lineLength" (ngModelChange)="handleLineLengthChange($event)">
+        <p class="slideinfo">Size multiplier</p>
+        <input type="range" min="0" max="100" class="slider" id="sizeMultiplierRange" [ngModel]="sizeMultiplier" (ngModelChange)="handleSizeMultiplierChange($event)">
+    </div>
+</div>

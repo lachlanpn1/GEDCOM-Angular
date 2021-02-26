@@ -1,0 +1,11 @@
+<form [formGroup]="fileForm" novalidate (ngSubmit)="onSubmit()">
+    <input id="file" formControlName="file" type="file" accept=".ged" (change)="onFileChange($event)" />
+    <button class="btn btn-success" type="submit" [disabled]="fileForm.invalid || fileForm.pristine || submitted">
+    Render
+  </button>
+</form>
+<div *ngIf="fileForm.get('file').invalid && fileForm.get('file').errors && (fileForm.get('file').dirty || fileForm.get('file').touched)">
+    <small class="text-danger" *ngIf="fileForm.get('file').hasError('validExt')">
+      File extension must be of type .{{fileExt}}
+  </small>
+</div>
